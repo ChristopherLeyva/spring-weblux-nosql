@@ -1,7 +1,7 @@
-package com.cleyva.product.controller;
+package pe.edu.vallegrande.app.rest;
 
-import com.cleyva.product.domain.Product;
-import com.cleyva.product.service.ProductService;
+import pe.edu.vallegrande.app.model.Product;
+import pe.edu.vallegrande.app.service.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
@@ -15,7 +15,7 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/api/v1/products")
 @RequiredArgsConstructor
 @Tag(name = "Product", description = "Product CRUD API endpoints")
-public class ProductController {
+public class ProductRest {
 
     private final ProductService productService;
 

@@ -1,7 +1,8 @@
-package com.cleyva.product.service;
+package pe.edu.vallegrande.app.service.impl;
 
-import com.cleyva.product.domain.Product;
-import com.cleyva.product.repository.ProductRepository;
+import pe.edu.vallegrande.app.model.Product;
+import pe.edu.vallegrande.app.repository.ProductRepository;
+import pe.edu.vallegrande.app.service.ProductService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -11,18 +12,21 @@ import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor
-public class ProductService {
+public class ProductServiceImpl implements ProductService {
 
     private final ProductRepository productRepository;
 
+    @Override
     public Flux<Product> findAll() {
         return productRepository.findAll();
     }
 
+    @Override
     public Mono<Product> findById(String id) {
         return productRepository.findById(id);
     }
 
+    @Override
     public Mono<Product> save(Product product) {
         if (product.getCreatedAt() == null) {
             product.setCreatedAt(LocalDateTime.now());
@@ -30,6 +34,7 @@ public class ProductService {
         return productRepository.save(product);
     }
 
+    @Override
     public Mono<Product> update(String id, Product product) {
         return productRepository.findById(id)
                 .flatMap(existingProduct -> {
@@ -44,6 +49,7 @@ public class ProductService {
                 });
     }
 
+    @Override
     public Mono<Void> deleteById(String id) {
         return productRepository.deleteById(id);
     }

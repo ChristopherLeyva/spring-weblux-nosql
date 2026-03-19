@@ -1,6 +1,6 @@
-package com.cleyva.product.repository;
+package pe.edu.vallegrande.app.repository;
 
-import com.cleyva.product.domain.Product;
+import pe.edu.vallegrande.app.model.Product;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import org.springframework.stereotype.Repository;
 

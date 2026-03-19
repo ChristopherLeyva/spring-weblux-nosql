@@ -1,4 +1,4 @@
-package com.cleyva.product.domain;
+package pe.edu.vallegrande.app.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
