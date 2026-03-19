@@ -1,0 +1,9 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: spring-weblux-nosql
+  data:
+    mongodb:
+      uri: mongodb+srv://christopherleyvachumpitaz_db_user:QwvrGUYYf7HcUhTp@cluster0.ykbc6sj.mongodb.net/00_christopher_leyva?appName=Cluster0
