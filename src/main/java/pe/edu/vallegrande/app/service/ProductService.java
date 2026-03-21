@@ -6,8 +6,8 @@ import reactor.core.publisher.Mono;
 
 public interface ProductService {
     Flux<Product> findAll();
-    Mono<Product> findById(String id);
+    Mono<Product> findById(Long id);
     Mono<Product> save(Product product);
-    Mono<Product> update(String id, Product product);
-    Mono<Void> deleteById(String id);
+    Mono<Product> update(Long id, Product product);
+    Mono<Void> deleteById(Long id);
 }

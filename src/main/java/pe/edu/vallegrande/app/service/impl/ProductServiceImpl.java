@@ -22,7 +22,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Mono<Product> findById(String id) {
+    public Mono<Product> findById(Long id) {
         return productRepository.findById(id);
     }
 
@@ -35,7 +35,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Mono<Product> update(String id, Product product) {
+    public Mono<Product> update(Long id, Product product) {
         return productRepository.findById(id)
                 .flatMap(existingProduct -> {
                     existingProduct.setName(product.getName());
@@ -50,7 +50,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Mono<Void> deleteById(String id) {
+    public Mono<Void> deleteById(Long id) {
         return productRepository.deleteById(id);
     }
 }

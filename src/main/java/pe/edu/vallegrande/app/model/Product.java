@@ -5,24 +5,28 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-
+import org.springframework.data.relational.core.mapping.Table;
+import org.springframework.data.relational.core.mapping.Column;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Document(collection = "product")
+@Table("product")
 public class Product {
     @Id
-    private String id;
+    private Long id;
+    
     private String name;
     private String description;
-    private Double price;
+    private BigDecimal price;
     private Integer stock;
     private String category;
     private String barcode;
     private String status;
+    
+    @Column("created_at")
     private LocalDateTime createdAt;
 }

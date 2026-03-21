@@ -3,7 +3,12 @@ server:
 
 spring:
   application:
-    name: spring-weblux-nosql
-  data:
-    mongodb:
-      uri: mongodb+srv://christopherleyvachumpitaz_db_user:QwvrGUYYf7HcUhTp@cluster0.ykbc6sj.mongodb.net/00_christopher_leyva?appName=Cluster0
+    name: spring-weblux-sql
+  r2dbc:
+    url: r2dbc:postgresql://ep-muddy-cloud-ad5ldacg-pooler.c-2.us-east-1.aws.neon.tech/lucas_leyva_24?sslmode=require
+    username: neondb_owner
+    password: npg_jOKQmt7HZ8PB
+  sql:
+    init:
+      mode: always
+      schema-locations: classpath:schema.sql

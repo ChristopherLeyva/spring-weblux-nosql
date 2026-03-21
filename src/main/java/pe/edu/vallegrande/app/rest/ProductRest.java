@@ -27,7 +27,7 @@ public class ProductRest {
 
     @GetMapping("/{id}")
     @Operation(summary = "Get a product by ID")
-    public Mono<ResponseEntity<Product>> getProductById(@PathVariable String id) {
+    public Mono<ResponseEntity<Product>> getProductById(@PathVariable Long id) {
         return productService.findById(id)
                 .map(ResponseEntity::ok)
                 .defaultIfEmpty(ResponseEntity.notFound().build());
@@ -42,7 +42,7 @@ public class ProductRest {
 
     @PutMapping("/{id}")
     @Operation(summary = "Update an existing product")
-    public Mono<ResponseEntity<Product>> updateProduct(@PathVariable String id, @RequestBody Product product) {
+    public Mono<ResponseEntity<Product>> updateProduct(@PathVariable Long id, @RequestBody Product product) {
         return productService.update(id, product)
                 .map(ResponseEntity::ok)
                 .defaultIfEmpty(ResponseEntity.notFound().build());
@@ -50,7 +50,7 @@ public class ProductRest {
 
     @DeleteMapping("/{id}")
     @Operation(summary = "Delete a product")
-    public Mono<ResponseEntity<Void>> deleteProduct(@PathVariable String id) {
+    public Mono<ResponseEntity<Void>> deleteProduct(@PathVariable Long id) {
         return productService.deleteById(id)
                 .map(p -> ResponseEntity.noContent().<Void>build())
                 .defaultIfEmpty(ResponseEntity.notFound().build());
